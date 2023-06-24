@@ -1,2 +1,3 @@
 venv
 server/venv
+*.pyc
