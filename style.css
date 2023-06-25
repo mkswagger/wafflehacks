@@ -132,7 +132,7 @@ section {
     padding: 10px 0;
     text-align: center;
     /* darken the background-color */
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(158, 255, 239, 0.8);
 }
 
 .section-heading {
@@ -176,8 +176,7 @@ section {
 }
 
 .review-box img {
-    width: 100px;
-    height: 100px;
+    
     border-radius: 50%;
     margin-bottom: 10px;
     object-fit: cover;
