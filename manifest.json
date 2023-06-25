@@ -4,18 +4,11 @@
   "manifest_version": 3,
   "description": "QueerSafe is a Chrome extension that allows users to quickly and easily find safe spaces for LGBTQ+ people.",
   "action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "popup": "popup.html"
   },
   "permissions": [
     "activeTab",
     "declarativeContent",
     "storage"
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
-  }
+  ]
 }
