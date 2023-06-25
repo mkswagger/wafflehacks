@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-from text_classifier import perform_sentiment_analysis
+from modules import perform_sentiment_analysis, split_sentences
+
+import re
 
 app = Flask(__name__)
 
@@ -22,8 +24,11 @@ def check_text():
     if text is None:
         return jsonify({'error': 'No text provided'})
 
-    # split text into sentences
-    sentences = text.split('.')
+    # split text into sentences by punctuation . ! and ?
+
+    sentences = split_sentences(text)
+    
+    print(sentences)
 
     # check each sentence
     result = []

@@ -1,5 +1,6 @@
 import nltk
 import ssl
+import re
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -32,7 +33,18 @@ def perform_sentiment_analysis(sentence):
     else:
         return "not offensive"
 
-# Example usage
-sentence = "heidrun absolutely problem designated toilet male female chose toilet based gender want identify fairytale world"
-result = perform_sentiment_analysis(sentence)
-print("Sentiment: " + result)
+
+def split_sentences(text):
+    # Split the text into sentences using regular expressions
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+
+    # Strip leading and trailing whitespace from each sentence
+    sentences = [sentence.strip() for sentence in sentences]
+
+    return sentences
+
+
+#  Example usage
+# sentence = "heidrun absolutely problem designated toilet male female chose toilet based gender want identify fairytale world"
+# result = perform_sentiment_analysis(sentence)
+# print("Sentiment: " + result)
