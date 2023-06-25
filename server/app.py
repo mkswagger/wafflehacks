@@ -19,22 +19,36 @@ def check_text():
     data = request.get_json()
     text = data['text']
 
+    if text is None:
+        return jsonify({'error': 'No text provided'})
+
     # split text into sentences
     sentences = text.split('.')
 
     # check each sentence
     result = []
     for sentence in sentences:
-        result.append(check_text_function(sentence))
+        sentence = sentence.strip()
+        # if sentence is too long, split it into smaller sentences
+        if len(sentence) > 15:
+            bad = False
+            while len(sentence) > 15:
+                if perform_sentiment_analysis(sentence[:15]) == "offensive":
+                    bad = True
+                    break
+
+                sentence = sentence[15:]
+            if perform_sentiment_analysis(sentence) == "offensive":
+                bad = True
+            result.append("offensive" if bad else "not offensive")
+
+        else:
+            result.append(perform_sentiment_analysis(sentence))
 
     
     return jsonify({'result': result})
 
-def check_text_function(text):
-    # Implement your text checking logic here
-    if 'bad' in text:
-        return 'Contains bad word'
-    return 'Text is clean'
+
 
 if __name__ == '__main__':
     app.run(debug=True)
