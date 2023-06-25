@@ -12,11 +12,13 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
     /* set back.webp as background image */
-    background-image: url("newback.png");
+    background-image: url("newback.jpeg");
     background-size: cover;
     width: min(100% - 3rem);
 }
-
+html {
+    scroll-behavior: smooth;
+}
 nav {
     padding: 10px;
     display: flex;
