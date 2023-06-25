@@ -11,12 +11,9 @@
   body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
-    background: linear-gradient(
-      to top,
-      var(--pan-blue),
-      var(--pan-pink),
-      var(--pan-yellow)
-    );
+    /* set back.webp as background image */
+    background-image: url("back.webp");
+    background-size: contain;
     width: min(100% - 3rem);
   }
   
@@ -26,7 +23,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
+    height: 60px;
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.5);
     position: sticky;
@@ -73,7 +70,7 @@
   }
   
   .main-section {
-    height: 60vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     background-size: cover;
@@ -88,8 +85,12 @@
   }
   
   .left-section {
-    padding: 50px;
-    padding-top: 200px;
+    /* center verical and horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    margin-top: 340px;
     color: #222;
     flex: 1;
   }
@@ -102,6 +103,7 @@
   .left-section p {
     font-size: 16px;
     margin-bottom: 20px;
+    width: 60vw;
   }
   
   .button {
