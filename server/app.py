@@ -1,13 +1,33 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+from text_classifier import perform_sentiment_analysis
 
 app = Flask(__name__)
+
+# Allow CORS for all domains on all routes
+CORS(app)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+
 
 @app.route('/check_text', methods=['POST'])
 def check_text():
     data = request.get_json()
-    # Perform text checking logic here
     text = data['text']
-    result = check_text_function(text)
+
+    # split text into sentences
+    sentences = text.split('.')
+
+    # check each sentence
+    result = []
+    for sentence in sentences:
+        result.append(check_text_function(sentence))
+
+    
     return jsonify({'result': result})
 
 def check_text_function(text):
@@ -17,4 +37,4 @@ def check_text_function(text):
     return 'Text is clean'
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
