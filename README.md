@@ -9,6 +9,20 @@ QueerSafe is a Chrome extension designed to safeguard and amplify the voices of 
 - Helps create a more inclusive and supportive online environment.
 - Real time content filtering and instant protection from negativity
 
+## Backend and Vader Model 🦾
+
+The QueerSafe Chrome extension utilizes a backend Flask server and the VADER (Valence Aware Dictionary and sEntiment Reasoner) model for sentiment analysis. Here's how it works:
+
+1. The backend server receives requests from the extension when a webpage is loaded.
+2. The server processes the webpage's content and performs sentiment analysis using the VADER model.
+3. The VADER model assigns sentiment scores to different parts of the webpage's text, indicating the positivity, neutrality, or negativity.
+4. Offensive content related to the queer community is identified based on the sentiment scores.
+5. If offensive content is detected, the extension attempts to replace it with something positive or supportive.
+
+The VADER model is a pre-trained model specifically designed for sentiment analysis of social media text. It takes into account the linguistic nuances and emoticons commonly found in online conversations.
+
+The backend server acts as the bridge between the extension and the sentiment analysis functionality. It processes the requests, communicates with the VADER model, and sends the appropriate response back to the extension.
+
 ## Requirements 🔨
 
 - Python 3.x
