@@ -20,7 +20,7 @@ def hello_world():
 def check_text():
     data = request.get_json()
     text = data['text']
-    
+
     if text is None:
         return jsonify({'error': 'No text provided'})
 
@@ -36,23 +36,23 @@ def check_text():
         sentence = sentence.strip()
 
         # if sentence is too long, split it into smaller sentences and check each one and append to result as single sentence
-        if len(sentence) > 15:
-            bad = False
+        # if len(sentence) > 15:
+        #     bad = False
 
-            while len(sentence) > 15:
-                if perform_sentiment_analysis(sentence[:15]) == "offensive":
-                    bad = True
-                    break
-                sentence = sentence[15:]
+        #     while len(sentence) > 15:
+        #         if perform_sentiment_analysis(sentence[:15]) == "offensive":
+        #             bad = True
+        #             break
+        #         sentence = sentence[15:]
 
-            if perform_sentiment_analysis(sentence) == "offensive":
-                bad = True
+        #     if perform_sentiment_analysis(sentence) == "offensive":
+        #         bad = True
 
-            result.append("offensive" if bad else "not offensive")
+        #     result.append("offensive" if bad else "not offensive")
 
-        # if sentence is short enough, check it and append to result
-        else:
-            result.append(perform_sentiment_analysis(sentence))
+        # # if sentence is short enough, check it and append to result
+        # else:
+        result.append(perform_sentiment_analysis(sentence))
 
     
     return jsonify({'result': result})
