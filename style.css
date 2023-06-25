@@ -12,8 +12,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.5;
     /* set back.webp as background image */
-    background-image: url("back.webp");
-    background-size: contain;
+    background-image: url("newback.png");
+    background-size: cover;
     width: min(100% - 3rem);
 }
 
@@ -96,9 +96,13 @@ section {
     flex-direction: column;
     align-items: center;
     
-    margin-top: 340px;
+    
     color: #222;
     flex: 1;
+}
+
+#about{
+    margin-top: 340px;
 }
 
 .left-section h1 {
@@ -126,8 +130,9 @@ section {
 
 .trending {
     padding: 10px 0;
-    background-color: #e79595;
     text-align: center;
+    /* darken the background-color */
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .section-heading {
@@ -265,7 +270,7 @@ h3 {
 }
 
 footer {
-    background-color: #e79595;
+    background-color: whitesmoke;
     text-align: center;
     padding-bottom: 10px;
     width: 100vw;
